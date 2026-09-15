@@ -213,6 +213,5 @@ void SelectionSort() {
 }
 
 int main() {
-    SelectionSort();
     return 0;
 }

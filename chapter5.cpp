@@ -21,9 +21,9 @@ void Power(double base = 2, int exponent = 10) {
 }
 
 bool IsRightTriangle(double a = 3, double b = 4, double c = 5) {
-    if ((a * a + b * b == c * c) || 
-    (b * b + c * c == a * a) || 
-    (c * c + a * a == b * b)) {
+    if ((a * a + b * b == c * c)
+    || (b * b + c * c == a * a)
+    || (c * c + a * a == b * b)) {
         return true;
     } else {
         return false;
@@ -61,6 +61,5 @@ void Display(T value) {
 }
 
 int main() {
-    SumDiagonal();
     return 0;
 }

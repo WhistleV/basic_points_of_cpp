@@ -73,5 +73,6 @@ void DemonstrateEnumeration() {
 }
 
 int main() {
+    DemonstrateEnumeration();
     return 0;
 }

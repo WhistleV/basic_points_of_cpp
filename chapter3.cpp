@@ -2,13 +2,6 @@
 #include <iomanip>
 #include <cmath>
 
-void ShowComma() {
-    int a = 1, b = 2, c = 3;
-    int x = (a, b, c);
-    int y = a = b = c;
-    std::cout << x << '\t' << y << std::endl;
-}
-
 void CalculateJudgeAverage() {
     int number_of_judges;
     double total_score = 0;

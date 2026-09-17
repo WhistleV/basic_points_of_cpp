@@ -57,7 +57,7 @@ class Circle {
         double radius_;
     public:
         const double kPi = 3.14159;
-        Circle(double radius = 0) : radius_(radius) {
+        Circle(double radius = 0.0): radius_(radius) {
             std::cout << "Constructor is called." << std::endl;
         }
         ~Circle() {
@@ -97,7 +97,7 @@ class Point {
     private:
         double x_, y_;
     public:
-        Point(const double& x, const double& y) : x_(x), y_(y) {}
+        Point(double x, double y): x_(x), y_(y) {}
         double GetX() const {
             return x_;
         }
@@ -144,7 +144,7 @@ class Complex {
     private:
         double real_, imag_;
     public:
-        Complex(const double& real, const double& imag)
+        Complex(double real = 0.0, double imag = 0.0)
         : real_(real), imag_(imag) {}
         void DisplayComplex() {
             std::cout << real_ << " + " << imag_ << " i" << std::endl;
@@ -175,7 +175,7 @@ class Book {
         static int book_count_;
         const char* book_id_;
     public:
-        Book(const char* book_id) : book_id_(book_id) {
+        Book(const char* book_id = ""): book_id_(book_id) {
             book_count_++;
         }
         static int GetBookCount() {

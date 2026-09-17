@@ -64,10 +64,10 @@ void DemonstrateStruct() {
 enum Color {kRed = 2, kYellow, kBlue, kOrange = 5, kPurple, kGreen};
 
 void DemonstrateEnumeration() {
-    std::random_device random_device;
-    std::mt19937 generator(random_device());
-    std::uniform_int_distribution<int> distribution(2, 4);
-    Color base_color = static_cast<Color>(distribution(generator));
+    std::random_device random_device; //获取一个随机数种子
+    std::mt19937 generator(random_device()); //调用随机数种子对象，初始化伪随机数引擎
+    std::uniform_int_distribution<int> distribution(2, 4); //获取一个[2, 4]均匀整数分布对象
+    Color base_color = static_cast<Color>(distribution(generator)); //调用已初始化的引擎进行均匀整数分布
     Color mixed_color = static_cast<Color>(base_color + distribution(generator));
     std::cout << mixed_color << std::endl;
 }

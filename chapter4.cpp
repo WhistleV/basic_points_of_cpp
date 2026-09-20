@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 void AnalyzeCourseScores() {
     const int kNumberOfCourses = 10;
@@ -156,6 +157,33 @@ void AnalyzeDynamicArray() {
     std::cout << maximum << ' ' << summation / array_length << std::endl;
 }
 
+void SmartPointer() {
+    int array_length;
+    std::cin >> array_length;
+    std::unique_ptr<int[]> smart_pointer_to_dynamic_array = std::make_unique<int[]>(array_length);
+    int* raw_smart_pointer_to_dynamic_array = smart_pointer_to_dynamic_array.get(); //借用裸指针
+    for (int idx = 0; idx < array_length; ++idx) {
+        int element;
+        std::cin >> element;
+        *(raw_smart_pointer_to_dynamic_array + idx) = element;
+    }
+    std::unique_ptr<int[]> smart_pointer_to_dynamic_array_move = std::move(smart_pointer_to_dynamic_array);
+    if (smart_pointer_to_dynamic_array == nullptr) {
+        std::cout << "Moved already." << '\n';
+    } else {
+        std::cout << "Didnt move." << '\n';
+    }
+    int summation = 0, maximum = smart_pointer_to_dynamic_array_move[0];
+    for (int idx = 0; idx < array_length; ++idx) {
+        summation += smart_pointer_to_dynamic_array_move[idx];
+        if (smart_pointer_to_dynamic_array_move[idx] > maximum) {
+            maximum = smart_pointer_to_dynamic_array_move[idx];
+        }
+    }
+    std::cout << "Maximum = " << maximum << '\n'
+    << "Average = " << summation * 1.0 / array_length << '\n' ;
+}
+
 void BinarySearch() {
     const int kArrayLength = 10;
     int array[kArrayLength] = {2, 5, 7, 8, 9, 11, 23, 26, 32, 37};
@@ -213,5 +241,6 @@ void SelectionSort() {
 }
 
 int main() {
+    SmartPointer();
     return 0;
 }

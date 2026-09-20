@@ -241,6 +241,5 @@ void SelectionSort() {
 }
 
 int main() {
-    SmartPointer();
     return 0;
 }
